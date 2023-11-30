@@ -59,9 +59,11 @@ async function bootServer(port: number): Promise<Server> {
       );
     }
 
-    Logger.info("Starting cron jobs...");
-    jobs.forEach((job) => job.start());
-    Logger.success("Cron jobs started");
+    if (process.env.STANDALONE_JOBS !== "YES") {
+      Logger.info("Starting cron jobs...");
+      jobs.forEach((job) => job.start());
+      Logger.success("Cron jobs started");
+    }
 
     recordServerVersion(version);
   } catch (error) {
