@@ -729,4 +729,11 @@
     "type": "customTime",
     "parameters": [3600]
   }
+  ,{
+    "name": "piCruncher",
+    "display": "π cruncher",
+    "autoRole": true,
+    "type": "script",
+    "parameters": ["pi.txt",null,"nospace"]
+  }
 ]
